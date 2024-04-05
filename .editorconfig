@@ -4,9 +4,15 @@
 root = true
 
 [*]
+# 缩进风格
 indent_style = space
+# 缩进大小
 indent_size = 4
+# 换行符风格
 end_of_line = crlf
+# 字符集
 charset = utf-8
+# 删除行尾空格
 trim_trailing_whitespace = false
-insert_final_newline = false
+# 文件底部留一行空行
+insert_final_newline = true

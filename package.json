@@ -20,6 +20,7 @@
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^9.0.11",
     "jsdom": "^24.0.0",
+    "normalize.css": "^8.0.1",
     "pinia": "^2.1.7",
     "sass": "^1.74.1",
     "standard": "^17.1.0",
@@ -34,6 +35,15 @@
   "peerDependencies": {
     "element-plus": "^2.6.3",
     "pinia": "^2.1.7",
+    "sass": "^1.74.1",
     "vue": "^3.4.21"
+  },
+  "files": [
+    "components/element",
+    "hooks/element",
+    "stores"
+  ],
+  "volta": {
+    "node": "16.20.2"
   }
 }
