@@ -14,6 +14,10 @@ module.exports = {
         ecmaVersion: 'latest'
     },
 
+    plugins: [
+        'html'
+    ],
+
     rules: {
         indent: ['error', 4],
         'no-unused-vars': isLint ? 'error' : 'warn'
