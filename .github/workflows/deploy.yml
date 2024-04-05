@@ -16,6 +16,10 @@ jobs:
         with:
           node-version: 16
 
+      # 使用 pnpm 作为包管理器
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies
         run: pnpm ci
 
