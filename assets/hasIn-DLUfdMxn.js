@@ -1,0 +1,1 @@
+import{v as t,t as e,A as f,B as h,p as g,y as m}from"./index-4das4cVd.js";function v(n,s){return n!=null&&s in Object(n)}function x(n,s,u){s=t(s,n);for(var a=-1,r=s.length,l=!1;++a<r;){var i=e(s[a]);if(!(l=n!=null&&u(n,i)))break;n=n[i]}return l||++a!=r?l:(r=n==null?0:n.length,!!r&&f(r)&&h(i,r)&&(g(n)||m(n)))}function I(n,s){return n!=null&&x(n,s,v)}export{I as h};

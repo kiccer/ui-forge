@@ -1,1 +1,0 @@
-import{_ as e,c,o}from"./index-ckOW88fh.js";const t={},n={class:"page-container"};function s(a,r){return o(),c("div",n," Form Demo. ")}const d=e(t,[["render",s],["__scopeId","data-v-99e0f299"]]);export{d as default};
