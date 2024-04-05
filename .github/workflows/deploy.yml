@@ -30,6 +30,12 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      # 部署前清空旧的部署
+      - name: Cleanup old deployment
+        run: |
+          git worktree prune
+          rm -rf .git/worktrees/github-pages-deploy-action-temp-deployment-folder/
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
