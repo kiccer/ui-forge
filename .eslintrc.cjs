@@ -1,11 +1,35 @@
 /* eslint-env node */
 module.exports = {
-  root: true,
-  'extends': [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended'
-  ],
-  parserOptions: {
-    ecmaVersion: 'latest'
-  }
+    root: true,
+
+    extends: [
+        'standard'
+    ],
+
+    parserOptions: {
+        ecmaVersion: 'latest'
+    },
+
+    rules: {
+        indent: ['error', 4]
+    },
+
+    overrides: [
+        {
+            files: ['*.vue'],
+
+            parserOptions: {
+                ecmaVersion: 2020
+            },
+
+            extends: [
+                'plugin:vue/vue3-strongly-recommended'
+            ],
+
+            rules: {
+                'vue/html-indent': ['error', 4],
+                'vue/multi-word-component-names': 'off'
+            }
+        }
+    ]
 }
