@@ -1,6 +1,6 @@
 {
     "name": "ui-forge",
-    "version": "0.0.0",
+    "version": "0.0.1-alpha.2",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -44,7 +44,7 @@
         "sass": "^1.74.1",
         "vue": "^3.4.21"
     },
-    "main": "src",
+    "main": "src/index.js",
     "files": [
         "src/index.js",
         "src/components/element",
