@@ -1,1 +1,0 @@
-import{x as m,p as y,y as e,z as h}from"./index-4das4cVd.js";var r=m?m.isConcatSpreadable:void 0;function x(n){return y(n)||e(n)||!!(r&&n&&n[r])}function t(n,s,i,b,a){var f=-1,g=n.length;for(i||(i=x),a||(a=[]);++f<g;){var o=n[f];s>0&&i(o)?s>1?t(o,s-1,i,b,a):h(a,o):b||(a[a.length]=o)}return a}export{t as b};
