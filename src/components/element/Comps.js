@@ -1,4 +1,5 @@
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, inject } from 'vue'
+import { uiForgeSymbol } from '../../index.js'
 
 // 基础组件
 export const baseComps = {
@@ -39,23 +40,28 @@ export const baseComps = {
 }
 
 // 表单组件
-export const formComps = {
-    Autocomplete: baseComps.Autocomplete,
-    Cascader: baseComps.Cascader,
-    Checkbox: baseComps.Checkbox,
-    ColorPicker: baseComps.ColorPicker,
-    DatePicker: baseComps.DatePicker,
-    DateTimePicker: baseComps.DateTimePicker,
-    Form: baseComps.Form,
-    Input: baseComps.Input,
-    InputNumber: baseComps.InputNumber,
-    Radio: baseComps.Radio,
-    Rate: baseComps.Rate,
-    Select: baseComps.Select,
-    VirtualizedSelect: baseComps.VirtualizedSelect,
-    Slider: baseComps.Slider,
-    Switch: baseComps.Switch,
-    TimePicker: baseComps.TimePicker,
-    TimeSelect: baseComps.TimeSelect,
-    Transfer: baseComps.Transfer
+export function getFormComps () {
+    const uiForgeConfig = inject(uiForgeSymbol, {})
+
+    return {
+        Autocomplete: baseComps.Autocomplete,
+        Cascader: baseComps.Cascader,
+        Checkbox: baseComps.Checkbox,
+        ColorPicker: baseComps.ColorPicker,
+        DatePicker: baseComps.DatePicker,
+        DateTimePicker: baseComps.DateTimePicker,
+        Form: baseComps.Form,
+        Input: baseComps.Input,
+        InputNumber: baseComps.InputNumber,
+        Radio: baseComps.Radio,
+        Rate: baseComps.Rate,
+        Select: baseComps.Select,
+        VirtualizedSelect: baseComps.VirtualizedSelect,
+        Slider: baseComps.Slider,
+        Switch: baseComps.Switch,
+        TimePicker: baseComps.TimePicker,
+        TimeSelect: baseComps.TimeSelect,
+        Transfer: baseComps.Transfer,
+        ...uiForgeConfig.formComps
+    }
 }

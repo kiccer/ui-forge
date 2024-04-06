@@ -6,8 +6,23 @@ const formData = ref({})
 
 const formConfigs = computed(() => [
     {
+        label: '横向布局',
+        key: 'isHorizontal',
+        comp: 'Switch'
+    },
+    {
         label: '输入框',
-        key: 'input'
+        key: 'input',
+        rules: { required: true }
+    },
+    {
+        label: '日期选择器',
+        key: ['startDate', 'endDate'],
+        comp: 'DatePicker',
+        props: {
+            type: 'daterange'
+        },
+        rules: { required: true }
     }
 ])
 
@@ -15,9 +30,12 @@ const formConfigs = computed(() => [
 
 <template>
     <div class="page-container">
+        <pre>formData: {{ formData }}</pre>
+
         <Form
             v-model:data="formData"
             :configs="formConfigs"
+            :inline="formData.isHorizontal"
         />
     </div>
 </template>

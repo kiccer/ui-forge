@@ -27,10 +27,6 @@ module.exports = {
         {
             files: ['*.vue'],
 
-            parserOptions: {
-                ecmaVersion: 2020
-            },
-
             extends: [
                 'plugin:vue/vue3-strongly-recommended'
             ],

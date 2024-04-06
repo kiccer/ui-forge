@@ -1,2 +1,2 @@
-export { Form } from './Form.js'
-export { FormItem } from './FormItem.js'
+export { Form } from './Form/index.js'
+export { FormItem } from './FormItem/index.js'
