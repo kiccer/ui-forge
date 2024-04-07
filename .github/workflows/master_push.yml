@@ -53,19 +53,18 @@ jobs:
           fi
 
       - name: 创建 tag
-        if: steps.check-tag.outputs.exists == 'false'
+        if: ${{ steps.check-tag.outputs.exists == 'false' }}
         run: git tag v${{ steps.package-version.outputs.version }} && git push --tags
 
       - name: 发布 Release
-        # 判断是否已经发布过此版本
-        if: steps.check-tag.outputs.exists == 'false'
+        if: ${{ steps.check-tag.outputs.exists == 'false' }}
         uses: softprops/action-gh-release@v2
         with:
           name: v${{ steps.package-version.outputs.version }}
           tag_name: v${{ steps.package-version.outputs.version }}
 
       - name: 发布到 NPM
-        if: steps.check-tag.outputs.exists == 'false'
+        if: ${{ steps.check-tag.outputs.exists == 'false' }}
         # 根据 version 判断是否需要加 --tag [alpha|beta]
         run: npm publish --tag ${{ contains(steps.package-version.outputs.version, 'alpha') && 'alpha' || contains(steps.package-version.outputs.version, 'beta') && 'beta' || 'latest' }}
         env:
