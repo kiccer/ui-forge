@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: 构建/部署/发布/NPM/tag/Release
 
 on:
   push:
@@ -43,7 +43,7 @@ jobs:
         # 暂存 contains(github.ref, 'refs/tags/v${{ steps.package-version.outputs.version }}') 结果
       - name: 判断 tag 是否存在
         id: tag-exists
-        run: echo ::set-output name=tag-exists::$(contains(github.ref, "refs/tags/v${{ steps.package-version.outputs.version }}"))
+        run: echo ::set-output name=tag-exists::${{ contains(github.ref, 'refs/tags/v${{ steps.package-version.outputs.version }}') }}
 
       - name: 创建 tag
         run: git tag v${{ steps.package-version.outputs.version }} && git push --tags
