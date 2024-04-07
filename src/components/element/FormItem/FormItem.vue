@@ -40,7 +40,7 @@ const config = asyncComputed(async () => {
             validator: (rule, value, callback) => {
                 if (rule.required) {
                     if ([
-                        !value,
+                        !value && ![0, false].includes(value),
                         Array.isArray(value) && value.every(v => [null, undefined].includes(v))
                     ].includes(true)) return callback(`${cfg.label}不能为空`)
                 }
@@ -68,8 +68,7 @@ const config = asyncComputed(async () => {
     cfg.formItemProps = {
         label: cfg.label,
         rules: cfg.rules,
-        ...cfg.formItemProps,
-        class: ['ui-forge-form-item', cfg.formItemProps?.class]
+        ...cfg.formItemProps
     }
 
     return cfg
@@ -105,6 +104,7 @@ const value = computed({
 })
 
 const errs = ref([])
+const validateStatus = ref('')
 
 function validate () {
     const { rules, key } = unref(config)
@@ -116,22 +116,15 @@ function validate () {
     return new Promise((resolve, reject) => {
         const data = { [String(key)]: unref(value) }
 
+        validateStatus.value = 'validating'
+
         validator.validate(data, errors => {
             errs.value = errors
+            validateStatus.value = errors?.length > 0 ? 'error' : 'success'
             resolve({ errors })
         })
     })
 }
-
-// const validProps = computed(() => {
-//     const errs = unref(errors) ?? []
-
-//     return {
-//         showMessage: errs.length > 0,
-//         inlineMessage: errs[0]?.message,
-//         validateStatus: errs.length > 0 ? 'error' : ''
-//     }
-// })
 
 defineExpose({
     validate
@@ -141,7 +134,8 @@ defineExpose({
 
 <template>
     <ElFormItem
-        :validate-status="errs?.length > 0 ? 'error' : ''"
+        class="ui-forge-form-item"
+        :validate-status="validateStatus"
         v-bind="config.formItemProps"
     >
         <template #label="{ label }">
@@ -171,5 +165,19 @@ defineExpose({
 </template>
 
 <style lang="scss" scoped>
-// css
+:deep(.el-form-item__content) {
+    .el-select {
+        min-width: 150px;
+    }
+}
+
+    :deep(.el-input__suffix) {
+        position: absolute;
+        right: 10px;
+
+        // &-inner {
+        //     background-color: #fff;
+        //     border: 1px solid transparent;
+        // }
+    }
 </style>
