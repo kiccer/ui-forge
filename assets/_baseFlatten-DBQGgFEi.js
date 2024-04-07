@@ -1,0 +1,1 @@
+import{f as e,g as h}from"./index-BAWx_WKd.js";import{S as m,j as t}from"./index-BVUmbTYK.js";var r=m?m.isConcatSpreadable:void 0;function y(n){return t(n)||e(n)||!!(r&&n&&n[r])}function S(n,i,a,s,o){var b=-1,g=n.length;for(a||(a=y),o||(o=[]);++b<g;){var f=n[b];i>0&&a(f)?i>1?S(f,i-1,a,s,o):h(o,f):s||(o[o.length]=f)}return o}export{S as b};
