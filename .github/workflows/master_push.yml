@@ -43,11 +43,11 @@ jobs:
       - name: 创建 tag
         run: git tag v${{ steps.package-version.outputs.version }}
         # 判断 version 是否已存在
-        if: ! contains(github.ref, 'refs/tags/v${{ steps.package-version.outputs.version }}')
+        if: contains(github.ref, 'refs/tags/v${{ steps.package-version.outputs.version }}') == false
 
       - name: 推送 tag
         uses: ad-m/github-push-action@v0.7.0
-        if: ! contains(github.ref, 'refs/tags/v${{ steps.package-version.outputs.version }}')
+        if: contains(github.ref, 'refs/tags/v${{ steps.package-version.outputs.version }}') == false
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: v${{ steps.package-version.outputs.version }}
