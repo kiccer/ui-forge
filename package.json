@@ -1,6 +1,6 @@
 {
     "name": "ui-forge",
-    "version": "0.0.1-alpha.3",
+    "version": "0.0.1-alpha.4",
     "description": "通过对三方UI组件二次封装，提高使用效率。",
     "author": "kiccer",
     "license": "MIT",
