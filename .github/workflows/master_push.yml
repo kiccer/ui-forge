@@ -52,7 +52,7 @@ jobs:
         # run: git tag v${{ steps.package-version.outputs.version }} && git push --tags
         uses: laputansoft/github-tag-action@v4.6
         with:
-          github_token: ${{ env.github-token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: v${{ steps.package-version.outputs.version }}
 
       - name: 发布 Release
