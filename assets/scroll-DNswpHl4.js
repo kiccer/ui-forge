@@ -1,0 +1,1 @@
+import{aK as T}from"./index-CAkJxtzJ.js";function u(o,s){if(!T)return;if(!s){o.scrollTop=0;return}const l=[];let t=s.offsetParent;for(;t!==null&&o!==t&&o.contains(t);)l.push(t),t=t.offsetParent;const f=s.offsetTop+l.reduce((r,c)=>r+c.offsetTop,0),e=f+s.offsetHeight,i=o.scrollTop,p=i+o.clientHeight;f<i?o.scrollTop=f:e>p&&(o.scrollTop=e-o.clientHeight)}export{u as s};
