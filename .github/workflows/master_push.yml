@@ -50,10 +50,11 @@ jobs:
       - name: 创建 tag
         if: steps.check-tag.outputs.exists == 'false'
         # run: git tag v${{ steps.package-version.outputs.version }} && git push --tags
-        uses: laputansoft/github-tag-action@v4.6
+        uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: v${{ steps.package-version.outputs.version }}
+          tag_exists_error: false
 
       - name: 发布 Release
         if: steps.check-tag.outputs.exists == 'false'
