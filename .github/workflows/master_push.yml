@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检出代码
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: 设置 Node.js 版本
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
@@ -49,7 +49,11 @@ jobs:
 
       - name: 创建 tag
         if: steps.check-tag.outputs.exists == 'false'
-        run: git tag v${{ steps.package-version.outputs.version }} && git push --tags
+        # run: git tag v${{ steps.package-version.outputs.version }} && git push --tags
+        uses: laputansoft/github-tag-action@v4.6
+        with:
+          github_token: ${{ env.github-token }}
+          tag: v${{ steps.package-version.outputs.version }}
 
       - name: 发布 Release
         if: steps.check-tag.outputs.exists == 'false'
