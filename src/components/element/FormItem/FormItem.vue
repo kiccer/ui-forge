@@ -171,13 +171,13 @@ defineExpose({
     }
 }
 
-    :deep(.el-input__suffix) {
-        position: absolute;
-        right: 10px;
+:deep(.el-input__suffix) {
+    position: absolute;
+    right: 10px;
 
-        // &-inner {
-        //     background-color: #fff;
-        //     border: 1px solid transparent;
-        // }
-    }
+    // &-inner {
+    //     background-color: #fff;
+    //     border: 1px solid transparent;
+    // }
+}
 </style>
